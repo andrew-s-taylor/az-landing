@@ -1,0 +1,90 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "orggroup": {
+        "value": "Organisation Management Group"
+      },
+      "devgroup": {
+        "value": "Dev Management Group"
+      },
+      "testgroup": {
+        "value": "Test Management Group"
+      },
+      "prodgroup": {
+        "value": "Prod Management Group"
+      },
+      "excgroup": {
+        "value": "Exclusions Management Group"
+      },
+      "SubscriptionID": {
+        "value": "Subscription ID"
+      },
+      "tagname": {
+        "value": "Resource Tag name"
+      },
+      "tagvalue": {
+        "value": "Resource Tag Value"
+      },
+      "region": {
+        "value": "Region"
+      },
+      "hubrgname": {
+        "value": "Hub Network RG Name"
+      },
+      "spokergname":{
+        "value": "Spoke Resource Group Name"
+      },
+      "hubname":{
+        "value": "Hub Network Name"
+      },
+      "hubspace":{
+        "value": "Hub Network Address Space"
+      },
+      "hubfwsubnet":{
+        "value": "Hub Firewall Subnet Space"
+      },
+      "spokename":{
+        "value": "Spoke Network Name"
+      },
+      "spokespace":{
+        "value": "Spoke Network Space"
+      },
+      "spokesnname":{
+        "value": "Spoke Subnet Name"
+      },
+      "spokesnspace":{
+        "value": "Spoke Subnet Space"
+      },
+      "logAnalyticsWorkspaceName":{
+        "value": "Log Analytics Workspace Name"
+      },
+      "logAnalyticslocation":{
+        "value": "Log Analytics Location"
+      },
+      "monitoringrg":{
+        "value": "Monitoring RG Name"
+      },
+      "serverrg":{
+        "value": "Server Resource Group"
+      },
+      "adminUserName":{
+        "value": "Admin UserName"
+      },
+      "adminPassword":{
+        "value": "Admin Password"
+      },
+      "dnsLabelPrefix":{
+        "value": "DNS Label Prefix"
+      },
+      "storageAccountName":{
+        "value": "Storage Account Name"
+      },
+      "vmName":{
+        "value": "VM Name"
+      },
+      "networkSecurityGroupName":{
+        "value": "Network Security Group Name"
+      }
+    }
+  }
