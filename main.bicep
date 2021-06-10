@@ -174,7 +174,7 @@ module hubspoke './infra.bicep' = {
 
 
 //Azure VM and Log Analytics
-module loganalytics './az-backplane.bicep' = {
+module loganalytics './az-analytics.bicep' = {
   name: 'loganalytics'
   scope: subscription(SubscriptionID)
   params: { 
