@@ -131,7 +131,7 @@ module route './modules/rot.bicep' = {
 
 module vpn './modules/vpngw.bicep' = {
   name: 'vpn'
-  scope: infrarg
+  scope: hubrg
   params: {
     vpngwpipname: vpngwpipname
     vpngwname : vpngwname
@@ -159,7 +159,7 @@ module infra './modules/az-vm.bicep' = {
     vmName: vmName
     subnetName: spokesnname
     networkSecurityGroupName: networkSecurityGroupName
-    vn: spokeVNET.outputs.id
+    vn: spokeVNET.outputs.name
   }
 }
 
