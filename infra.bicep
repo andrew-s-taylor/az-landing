@@ -59,7 +59,7 @@ module hubVNET './modules/vnet.bicep' = {
         }
       }
       {
-        name: 'VPNSubnet'
+        name: 'GatewaySubnet'
         properties: {
           addressPrefix: vpnsubnet
         }
