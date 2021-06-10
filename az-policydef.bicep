@@ -3,10 +3,10 @@
 targetScope = 'subscription'
 
 param listOfAllowedLocations array = [
-  'eastus'
-  'eastus2'
-  'westus'
-  'westus2'
+  'uksouth'
+  'ukwest'
+  'northeurope'
+  'westeurope'
 ]
 
 param listOfAllowedSKUs array = [
@@ -140,7 +140,7 @@ resource tagpolicydef 'Microsoft.Authorization/policyDefinitions@2020-09-01' = {
         notLike: '[parameters(\'tagFormat\')]'
       }
       then: {
-        effect: 'Deny'
+        effect: 'Audit'
       }
     }
   }

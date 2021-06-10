@@ -46,6 +46,13 @@ param spokename string
 param spokespace string
 param spokesnname string
 param spokesnspace string
+param vpnsubnet string
+param vpngwpipname string
+param vpngwname string
+param localnetworkgwname string
+param addressprefixes string
+param gwipaddress string
+param bgppeeringpddress string
 
 
 
@@ -168,7 +175,15 @@ module hubspoke './infra.bicep' = {
     dnsLabelPrefix: dnsLabelPrefix
     storageAccountName: storageAccountName
     vmName: vmName
+    vpnsubnet: vpnsubnet
     networkSecurityGroupName: networkSecurityGroupName
+    vpngwpipname: vpngwpipname
+    vpngwname : vpngwname
+    location: region
+    localnetworkgwname: localnetworkgwname 
+    addressprefixes: addressprefixes
+    gwipaddress: gwipaddress
+    bgppeeringpddress: bgppeeringpddress
   }
 }
 

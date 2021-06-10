@@ -83,6 +83,27 @@
       "vmName":{
         "value": "VM Name"
       },
+      "vpnsubnet":{
+        "value": "VPN Subnet Address Space"
+      },
+      "vpngwpipname":{
+        "value": "VPN Gateway Public IP Name"
+      },
+      "vpngwname":{
+        "value": "VPN Gateway Name"
+      },
+      "localnetworkgwname":{
+        "value": "Local Network Gateway Name"
+      },
+      "addressprefixes":{
+        "value": "Local Network Address Prefix"
+      },
+      "gwipaddress":{
+        "value": "Local Network Gateway IP"
+      },
+      "bgppeeringpddress":{
+        "value": "BPG Peering Address"
+      },
       "networkSecurityGroupName":{
         "value": "Network Security Group Name"
       }

@@ -12,6 +12,7 @@ param spokesnname string
 param spokesnspace string
 param serverrg string
 param adminUserName string
+param vpnsubnet string
 
 @secure()
 param adminPassword string
@@ -19,6 +20,13 @@ param dnsLabelPrefix string
 param storageAccountName string
 param vmName string
 param networkSecurityGroupName string
+param vpngwpipname string
+param vpngwname string
+param location string
+param localnetworkgwname string
+param addressprefixes string
+param gwipaddress string
+param bgppeeringpddress string
 
 resource hubrg 'Microsoft.Resources/resourceGroups@2020-06-01' = {
   name: hubrgname
@@ -48,6 +56,12 @@ module hubVNET './modules/vnet.bicep' = {
         name: 'AzureFirewallSubnet'
         properties: {
           addressPrefix: hubfwsubnet
+        }
+      }
+      {
+        name: 'VPNSubnet'
+        properties: {
+          addressPrefix: vpnsubnet
         }
       }
     ]
@@ -113,6 +127,25 @@ module route './modules/rot.bicep' = {
     azFwlIp: Hubfwl.outputs.privateIp
   }
 }
+
+
+module vpn './modules/vpngw.bicep' = {
+  name: 'vpn'
+  scope: infrarg
+  params: {
+    vpngwpipname: vpngwpipname
+    vpngwname : vpngwname
+    location: location
+    localnetworkgwname: localnetworkgwname 
+    addressprefixes: addressprefixes
+    gwipaddress: gwipaddress
+    bgppeeringpddress: bgppeeringpddress
+    subnetref: vpnsubnet
+  }
+}
+
+
+
 
 
 module infra './modules/az-vm.bicep' = {
