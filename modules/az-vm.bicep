@@ -23,7 +23,7 @@ param vn string
 param windowsOSVersion string = '2019-Datacenter'
 
 @description('Size of the virtual machine.')
-param vmSize string = 'Standard_D2_v3'
+param vmSize string = 'Standard_D2s_v3'
 
 @description('location for all resources')
 param location string = resourceGroup().location
