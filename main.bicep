@@ -53,6 +53,7 @@ param localnetworkgwname string
 param addressprefixes string
 param gwipaddress string
 param bgppeeringpddress string
+param devicesubnet string
 
 
 
@@ -184,6 +185,7 @@ module hubspoke './infra.bicep' = {
     addressprefixes: addressprefixes
     gwipaddress: gwipaddress
     bgppeeringpddress: bgppeeringpddress
+    devicesubnet: devicesubnet
   }
 }
 

@@ -104,6 +104,9 @@
       "bgppeeringpddress":{
         "value": "BPG Peering Address"
       },
+      "devicesubnet":{
+        "value": "Subnet for Devices"
+      },
       "networkSecurityGroupName":{
         "value": "Network Security Group Name"
       }

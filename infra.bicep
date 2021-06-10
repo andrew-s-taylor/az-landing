@@ -13,6 +13,7 @@ param spokesnspace string
 param serverrg string
 param adminUserName string
 param vpnsubnet string
+param devicesubnet string
 
 @secure()
 param adminPassword string
@@ -62,6 +63,12 @@ module hubVNET './modules/vnet.bicep' = {
         name: 'GatewaySubnet'
         properties: {
           addressPrefix: vpnsubnet
+        }
+      }
+      {
+        name: 'DeviceSubnet'
+        properties: {
+          addressPrefix: devicesubnet
         }
       }
     ]
