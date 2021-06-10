@@ -99,7 +99,7 @@ module Hubfwl './modules/fwl.bicep' = {
   }
 }
 
-module HubToSpokePeering 'modules/peering.bicep' = {
+module HubToSpokePeering './modules/peering.bicep' = {
   name: 'hub-to-spoke-peering'
   scope: hubrg
   params: {
@@ -109,7 +109,7 @@ module HubToSpokePeering 'modules/peering.bicep' = {
   }
 }
 
-module SpokeToHubPeering 'modules/peering.bicep' = {
+module SpokeToHubPeering './modules/peering.bicep' = {
   name: 'spoke-to-hub-peering'
   scope: spokerg
   params: {
@@ -140,7 +140,7 @@ module vpn './modules/vpngw.bicep' = {
     addressprefixes: addressprefixes
     gwipaddress: gwipaddress
     bgppeeringpddress: bgppeeringpddress
-    subnetref: vpnsubnet
+    subnetref: hubVNET.outputs.subnet2
   }
 }
 

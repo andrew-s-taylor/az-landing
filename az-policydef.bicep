@@ -155,10 +155,10 @@ resource policyAssignment 'Microsoft.Authorization/policyAssignments@2020-09-01'
     description: 'Policy will Deny resources not tagged with a specific tag'
     parameters: {
       tagName: {
-        value: 'tag_name'
+        value: tagname
       }
       tagFormat: {
-        value: 'tag_format'
+        value: tagvalue
       }
     }
   }
