@@ -47,7 +47,7 @@ module hubVNET './modules/vnet.bicep' = {
   name: hubname
   scope: hubrg
   params: {
-    prefix: 'hub'
+    prefix: hubname
     addressSpaces: [
       hubspace
     ]
@@ -72,7 +72,7 @@ module spokeVNET './modules/vnet.bicep' = {
   name: spokename
   scope: spokerg
   params: {
-    prefix: 'spoke'
+    prefix: spokename
     addressSpaces: [
       spokespace
     ]
