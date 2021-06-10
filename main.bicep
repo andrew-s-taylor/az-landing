@@ -190,7 +190,7 @@ module hubspoke './infra.bicep' = {
 }
 
 
-//Azure VM and Log Analytics
+//Azure Log Analytics
 module loganalytics './az-analytics.bicep' = {
   name: 'loganalytics'
   scope: subscription(SubscriptionID)
@@ -204,5 +204,22 @@ monitoringrg: monitoringrg
 
 
 
+//VM
 
-//VPN
+module infra './modules/az-vm.bicep' = {
+  name: 'infra'
+  scope: resourceGroup(SubscriptionID, serverrg)
+  dependsOn: [
+    hubspoke
+  ]
+  params: {
+    adminUserName: adminUserName
+    adminPassword: adminPassword
+    dnsLabelPrefix: dnsLabelPrefix
+    storageAccountName: storageAccountName
+    vmName: vmName
+    subnetName: spokesnname
+    networkSecurityGroupName: networkSecurityGroupName
+    vn: hubspoke.outputs.spokevnet
+  }
+}

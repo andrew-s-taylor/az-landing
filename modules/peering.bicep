@@ -2,7 +2,7 @@ param localVnetName string
 param remoteVnetName string
 param remoteVnetId string
 
-resource peer 'Microsoft.Network/virtualNetworks/virtualNetworkPeerings@2020-06-01' = {
+resource peer 'Microsoft.Network/virtualNetworks/virtualNetworkPeerings@2020-07-01' = {
   name: '${localVnetName}/to-${remoteVnetName}'
   properties: {
     allowForwardedTraffic: false

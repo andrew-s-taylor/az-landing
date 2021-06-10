@@ -88,9 +88,6 @@ module spokeVNET './modules/vnet.bicep' = {
         name: spokesnname
         properties: {
           addressPrefix: spokesnspace
-          routeTable: {
-            id: route.outputs.id
-          }
         }
       }
     ]
@@ -134,14 +131,6 @@ module SpokeToHubPeering './modules/peering.bicep' = {
   }
 }
 
-module route './modules/rot.bicep' = {
-  name: 'spoke-route'
-  scope: spokerg
-  params: {
-    prefix: 'spoke'
-    azFwlIp: Hubfwl.outputs.privateIp
-  }
-}
 
 
 module vpn './modules/vpngw.bicep' = {
@@ -161,24 +150,9 @@ module vpn './modules/vpngw.bicep' = {
 
 
 
+output spokevnet string = spokeVNET.outputs.name
+output serverrg object = infrarg
 
 
-module infra './modules/az-vm.bicep' = {
-  name: 'infra'
-  scope: infrarg
-  dependsOn: [
-    spokeVNET
-  ]
-  params: {
-    adminUserName: adminUserName
-    adminPassword: adminPassword
-    dnsLabelPrefix: dnsLabelPrefix
-    storageAccountName: storageAccountName
-    vmName: vmName
-    subnetName: spokesnname
-    networkSecurityGroupName: networkSecurityGroupName
-    vn: spokeVNET.outputs.name
-  }
-}
 
 
