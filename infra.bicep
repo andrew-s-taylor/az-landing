@@ -102,6 +102,10 @@ module Hubfwl './modules/fwl.bicep' = {
 module HubToSpokePeering './modules/peering.bicep' = {
   name: 'hub-to-spoke-peering'
   scope: hubrg
+  dependsOn: [
+    hubVNET
+    spokeVNET
+  ]
   params: {
     localVnetName: hubVNET.outputs.name
     remoteVnetName: spokename
@@ -112,6 +116,10 @@ module HubToSpokePeering './modules/peering.bicep' = {
 module SpokeToHubPeering './modules/peering.bicep' = {
   name: 'spoke-to-hub-peering'
   scope: spokerg
+  dependsOn: [
+    hubVNET
+    spokeVNET
+  ]
   params: {
     localVnetName: spokeVNET.outputs.name
     remoteVnetName: hubname
@@ -151,6 +159,9 @@ module vpn './modules/vpngw.bicep' = {
 module infra './modules/az-vm.bicep' = {
   name: 'infra'
   scope: infrarg
+  dependsOn: [
+    spokeVNET
+  ]
   params: {
     adminUserName: adminUserName
     adminPassword: adminPassword

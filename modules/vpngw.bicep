@@ -67,7 +67,6 @@ resource localnetworkgw 'Microsoft.Network/localNetworkGateways@2020-06-01' = {
     }
     gatewayIpAddress: gwipaddress
     bgpSettings: {
-      asn: 65515
       bgpPeeringAddress: bgppeeringpddress
     }
   }
