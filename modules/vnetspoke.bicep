@@ -1,6 +1,7 @@
 param prefix string
 param addressSpaces array
 param subnets array
+param snname string
 
 resource vnet 'Microsoft.Network/virtualNetworks@2020-06-01' = {
   name: prefix
@@ -15,6 +16,9 @@ resource vnet 'Microsoft.Network/virtualNetworks@2020-06-01' = {
 
 output name string = vnet.name
 output id string = vnet.id
-output subnet string = vnet.properties.subnets[0].id
+
+output subnetId string = '${vnet.id}/subnets/${snname}'
+output subnetName string = snname
+
 
 

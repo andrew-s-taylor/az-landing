@@ -80,6 +80,7 @@ module spokeVNET './modules/vnetspoke.bicep' = {
   scope: spokerg
   params: {
     prefix: spokename
+    snname: spokesnname
     addressSpaces: [
       spokespace
     ]
@@ -173,7 +174,7 @@ module infra './modules/az-vm.bicep' = {
     vmName: vmName
     subnetName: spokesnname
     networkSecurityGroupName: networkSecurityGroupName
-    vn: spokeVNET.outputs.subnet
+    vn: spokeVNET.outputs.subnetId
   }
 }
 
