@@ -75,7 +75,7 @@ module hubVNET './modules/vnet.bicep' = {
   }
 }
 
-module spokeVNET './modules/vnet.bicep' = {
+module spokeVNET './modules/vnetspoke.bicep' = {
   name: spokename
   scope: spokerg
   params: {
@@ -153,6 +153,29 @@ module vpn './modules/vpngw.bicep' = {
 output spokevnet string = spokeVNET.outputs.name
 output serverrg object = infrarg
 
+
+
+
+//VM
+
+module infra './modules/az-vm.bicep' = {
+  name: 'infra'
+  scope: infrarg
+  dependsOn: [
+    hubVNET
+    spokeVNET
+  ]
+  params: {
+    adminUserName: adminUserName
+    adminPassword: adminPassword
+    dnsLabelPrefix: dnsLabelPrefix
+    storageAccountName: storageAccountName
+    vmName: vmName
+    subnetName: spokesnname
+    networkSecurityGroupName: networkSecurityGroupName
+    vn: spokeVNET.name
+  }
+}
 
 
 

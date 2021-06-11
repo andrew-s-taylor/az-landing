@@ -204,22 +204,3 @@ monitoringrg: monitoringrg
 
 
 
-//VM
-
-module infra './modules/az-vm.bicep' = {
-  name: 'infra'
-  scope: resourceGroup(SubscriptionID, serverrg)
-  dependsOn: [
-    hubspoke
-  ]
-  params: {
-    adminUserName: adminUserName
-    adminPassword: adminPassword
-    dnsLabelPrefix: dnsLabelPrefix
-    storageAccountName: storageAccountName
-    vmName: vmName
-    subnetName: spokesnname
-    networkSecurityGroupName: networkSecurityGroupName
-    vn: hubspoke.outputs.spokevnet
-  }
-}
