@@ -1,6 +1,6 @@
 targetScope = 'subscription'
 
-param region string = 'westeurope'
+param region string
 param hubrgname string
 param spokergname string
 param hubname string
