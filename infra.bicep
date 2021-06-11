@@ -173,7 +173,7 @@ module infra './modules/az-vm.bicep' = {
     vmName: vmName
     subnetName: spokesnname
     networkSecurityGroupName: networkSecurityGroupName
-    vn: spokeVNET.name
+    vn: spokeVNET.outputs.subnet
   }
 }
 
