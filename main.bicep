@@ -80,7 +80,7 @@ param networkSecurityGroupName string
 //Create Parent Management Group
 
 resource parentmanagement 'Microsoft.Management/managementGroups@2020-05-01' = {
-  name: orggroup
+  name: orggroup 
   properties: {
     displayName: orggroup
     details: {
