@@ -65,12 +65,6 @@ module hubVNET './modules/vnet.bicep' = {
           addressPrefix: vpnsubnet
         }
       }
-      {
-        name: 'DeviceSubnet'
-        properties: {
-          addressPrefix: devicesubnet
-        }
-      }
     ]
   }
 }
@@ -85,11 +79,18 @@ module spokeVNET './modules/vnetspoke.bicep' = {
       spokespace
     ]
     subnets: [
-      {
+      
+        {
         name: spokesnname
         properties: {
           addressPrefix: spokesnspace
         }
+      }
+        {
+          name: 'DeviceSubnet'
+          properties: {
+            addressPrefix: devicesubnet
+          }
       }
     ]
   }
