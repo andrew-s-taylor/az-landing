@@ -7,6 +7,8 @@ param listOfAllowedLocations array = [
   'ukwest'
   'northeurope'
   'westeurope'
+  'australiaeast'
+  'australiasoutheast'
 ]
 
 param listOfAllowedSKUs array = [
